@@ -287,7 +287,7 @@ const FateLandingPage = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
                 icon: <Cpu className="h-8 w-8" />,
@@ -301,13 +301,8 @@ const FateLandingPage = () => {
               },
               {
                 icon: <Lightbulb className="h-8 w-8" />,
-                title: "Innovation Hackathons",
-                description: "Competitive events fostering creative problem-solving and teamwork"
-              },
-              {
-                icon: <Users className="h-8 w-8" />,
-                title: "Mentorship Programs",
-                description: "One-on-one guidance from industry experts and experienced engineers"
+                title: "Embedded System Workshops",
+                description: "Deep dive into embedded programming, microcontrollers, and hardware integration"
               }
             ].map((service, index) => (
               <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
