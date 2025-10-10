@@ -30,7 +30,7 @@ const FateLandingPage = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Gallery images
+  // Gallery images - 12 total
   const galleryImages = [
     {
       id: 1,
@@ -71,6 +71,26 @@ const FateLandingPage = () => {
       id: 8,
       src: "https://images.unsplash.com/photo-1623863568368-69e4cbe6cc0b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHw0fHxyb2JvdGljcyUyMGVkdWNhdGlvbiUyMHN0dWRlbnRzfGVufDB8fHx8MTc2MDA5NDc4M3ww&ixlib=rb-4.1.0&q=85",
       alt: "Students engaged in learning"
+    },
+    {
+      id: 9,
+      src: "https://images.unsplash.com/photo-1743677077216-00a458eff9e0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwzfHxyb2JvdGljcyUyMHdvcmtzaG9wJTIwc3R1ZGVudHN8ZW58MHx8fHwxNzYwMDk2MDg4fDA&ixlib=rb-4.1.0&q=85",
+      alt: "Children interacting with robot"
+    },
+    {
+      id: 10,
+      src: "https://images.pexels.com/photos/7869041/pexels-photo-7869041.jpeg",
+      alt: "Students in robotics workshop"
+    },
+    {
+      id: 11,
+      src: "https://images.pexels.com/photos/7869245/pexels-photo-7869245.jpeg",
+      alt: "Students working on robotics projects"
+    },
+    {
+      id: 12,
+      src: "https://images.unsplash.com/photo-1755053757912-a63da9d6e0e2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMHdvcmtzaG9wJTIwc3R1ZGVudHN8ZW58MHx8fHwxNzYwMDk2MDg4fDA&ixlib=rb-4.1.0&q=85",
+      alt: "Students focused on technical work"
     }
   ];
 
