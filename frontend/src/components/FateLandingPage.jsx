@@ -118,14 +118,34 @@ const FateLandingPage = () => {
     setIsMenuOpen(false);
   };
 
-  // Handle form submission (mock)
-  const handleFormSubmit = (e) => {
+  // Handle form submission (integrated with backend)
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: '', email: '', message: '' });
+    setIsLoading(true);
+    setFormError('');
+    
+    try {
+      const response = await axios.post(`${API}/contact/submit`, formData);
+      
+      if (response.data.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      const errorMessage = error.response?.data?.detail || 
+                          error.message || 
+                          'Failed to send message. Please try again.';
+      setFormError(errorMessage);
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => setFormError(''), 5000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleInputChange = (e) => {
