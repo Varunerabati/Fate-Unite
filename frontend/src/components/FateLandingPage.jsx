@@ -406,9 +406,11 @@ const FateLandingPage = () => {
             <Card className="bg-white hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8 text-center space-y-6">
                 <div className="relative">
-                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white">DV</span>
-                  </div>
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjAwMDkzMjJ8MA&ixlib=rb-4.1.0&q=85"
+                    alt="Dinesh Vanga"
+                    className="w-32 h-32 mx-auto rounded-full object-cover shadow-lg"
+                  />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold text-gray-900">Dinesh Vanga</h3>
@@ -425,9 +427,11 @@ const FateLandingPage = () => {
             <Card className="bg-white hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8 text-center space-y-6">
                 <div className="relative">
-                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white">SK</span>
-                  </div>
+                  <img
+                    src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjAwMDkzMjJ8MA&ixlib=rb-4.1.0&q=85"
+                    alt="Shashank K"
+                    className="w-32 h-32 mx-auto rounded-full object-cover shadow-lg"
+                  />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold text-gray-900">Shashank K</h3>
