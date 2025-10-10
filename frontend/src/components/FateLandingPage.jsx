@@ -29,6 +29,8 @@ const FateLandingPage = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [formError, setFormError] = useState('');
 
   // Gallery images - 12 total
   const galleryImages = [
