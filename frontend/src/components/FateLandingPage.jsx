@@ -259,21 +259,10 @@ const FateLandingPage = () => {
                 ensuring students don't just learn concepts but experience them. We're building a generation 
                 of tech innovators who will shape tomorrow's world.
               </p>
-              <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="text-center">
-                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Users className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900">500+</h3>
-                  <p className="text-sm text-gray-600">Students Trained</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Award className="h-8 w-8 text-purple-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900">50+</h3>
-                  <p className="text-sm text-gray-600">Workshops Conducted</p>
-                </div>
+              <div className="mt-8">
+                <p className="text-lg text-blue-600 font-semibold">
+                  "Building the foundation for tomorrow's innovators, one student at a time."
+                </p>
               </div>
             </div>
             <div className="relative">
