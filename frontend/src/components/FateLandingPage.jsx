@@ -17,8 +17,13 @@ import {
   Cpu,
   Target,
   Award,
-  Send
+  Send,
+  Loader2
 } from 'lucide-react';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const FateLandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
