@@ -4,6 +4,23 @@ import { Card, CardContent } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
+// Use public asset path for the local image (Vite compatible)
+const DineshImage = '/assets/dinesh.jpg';
+const ShashankImage = '/assets/shashank.jpg';
+const fateimage = '/assets/fate logo.jpg';
+const img1 = '/assets/img1.jpg';
+const img2 = '/assets/img2.jpg';
+const img3 = '/assets/img3.jpg';
+const img4 = '/assets/img4.jpg';
+const img5 = '/assets/img5.jpg';
+const img6 = '/assets/img6.jpg';
+const img7 = '/assets/img7.jpg';
+const img8 = '/assets/img8.jpg';
+const img9 = '/assets/img9.jpg';
+const img10 = '/assets/img10.jpg';
+const img11 = '/assets/img11.jpg';
+const img12 = '/assets/img12.jpg';
+
 import { 
   Menu, 
   X, 
@@ -14,6 +31,7 @@ import {
   Mail,
   Users,
   Lightbulb,
+  CreditCard,
   Cpu,
   Target,
   Award,
@@ -22,7 +40,7 @@ import {
 } from 'lucide-react';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const FateLandingPage = () => {
@@ -38,65 +56,60 @@ const FateLandingPage = () => {
   const [formError, setFormError] = useState('');
 
   // Gallery images - 12 total
-  const galleryImages = [
-    {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1743677077216-00a458eff9e0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGVkdWNhdGlvbiUyMHN0dWRlbnRzfGVufDB8fHx8MTc2MDA5NDc4M3ww&ixlib=rb-4.1.0&q=85",
-      alt: "Students learning robotics"
-    },
+  const galleryImages = [ 
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1658584124309-768111d9c5db?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxyb2JvdGljcyUyMGVkdWNhdGlvbiUyMHN0dWRlbnRzfGVufDB8fHx8MTc2MDA5NDc4M3ww&ixlib=rb-4.1.0&q=85",
+      src: img1,
       alt: "Collaborative robotics work"
     },
     {
-      id: 3,
-      src: "https://images.pexels.com/photos/7869041/pexels-photo-7869041.jpeg",
-      alt: "Hands-on STEM learning"
-    },
-    {
       id: 4,
-      src: "https://images.pexels.com/photos/7869139/pexels-photo-7869139.jpeg",
+      src: img3,
       alt: "Student project work"
     },
     {
       id: 5,
-      src: "https://images.unsplash.com/photo-1660795468878-d9d8d75967b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxTVEVNJTIwZWR1Y2F0aW9uJTIwd29ya3Nob3B8ZW58MHx8fHwxNzYwMDk0NzkxfDA&ixlib=rb-4.1.0&q=85",
+      src: img4,
       alt: "Educational workshop"
     },
     {
       id: 6,
-      src: "https://images.unsplash.com/photo-1616992873922-94702fd40c94?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxTVEVNJTIwZWR1Y2F0aW9uJTIwd29ya3Nob3B8ZW58MHx8fHwxNzYwMDk0NzkxfDA&ixlib=rb-4.1.0&q=85",
+      src: img5,
       alt: "Interactive learning session"
     },
     {
       id: 7,
-      src: "https://images.unsplash.com/photo-1637743408313-c9d5e869d9db?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHw0fHxTVEVNJTIwZWR1Y2F0aW9uJTIwd29ya3Nob3B8ZW58MHx8fHwxNzYwMDk0NzkxfDA&ixlib=rb-4.1.0&q=85",
+      src: img6,
       alt: "Focused learning activity"
     },
     {
       id: 8,
-      src: "https://images.unsplash.com/photo-1623863568368-69e4cbe6cc0b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHw0fHxyb2JvdGljcyUyMGVkdWNhdGlvbiUyMHN0dWRlbnRzfGVufDB8fHx8MTc2MDA5NDc4M3ww&ixlib=rb-4.1.0&q=85",
+      src: img7,
       alt: "Students engaged in learning"
     },
     {
       id: 9,
-      src: "https://images.unsplash.com/photo-1743677077216-00a458eff9e0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwzfHxyb2JvdGljcyUyMHdvcmtzaG9wJTIwc3R1ZGVudHN8ZW58MHx8fHwxNzYwMDk2MDg4fDA&ixlib=rb-4.1.0&q=85",
+      src: img8,
       alt: "Children interacting with robot"
     },
     {
       id: 10,
-      src: "https://images.pexels.com/photos/7869041/pexels-photo-7869041.jpeg",
+      src: img9,
       alt: "Students in robotics workshop"
     },
     {
       id: 11,
-      src: "https://images.pexels.com/photos/7869245/pexels-photo-7869245.jpeg",
+      src: img10,
       alt: "Students working on robotics projects"
     },
     {
       id: 12,
-      src: "https://images.unsplash.com/photo-1755053757912-a63da9d6e0e2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMHdvcmtzaG9wJTIwc3R1ZGVudHN8ZW58MHx8fHwxNzYwMDk2MDg4fDA&ixlib=rb-4.1.0&q=85",
+      src: img11,
+      alt: "Students focused on technical work"
+    },
+    {
+      id: 13,
+      src: img12,
       alt: "Students focused on technical work"
     }
   ];
@@ -223,12 +236,16 @@ const FateLandingPage = () => {
                 <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">
                   EdTech Innovation
                 </Badge>
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                  From Ashes To{' '}
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Empire
-                  </span>
-                </h1>
+<h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                From{' '}
+  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+    Ashes
+  </span>
+  {' '}to{' '}
+  <span className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
+    Empire
+  </span>
+</h1>            
                 <p className="text-xl text-gray-600 leading-relaxed">
                   Empowering the next generation through interactive robotics, IoT, and automation education. 
                   We transform curiosity into innovation, building tomorrow's tech leaders today.
@@ -255,7 +272,7 @@ const FateLandingPage = () => {
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
-                  src={galleryImages[0].src}
+                  src= {fateimage}
                   alt="Students learning robotics"
                   className="w-full h-[500px] object-cover"
                 />
@@ -277,7 +294,7 @@ const FateLandingPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-600 leading-relaxed">
-                F.A.T.E (From Ashes To Empire) is pioneering the future of education through hands-on robotics, 
+                F.A.T.E is pioneering the future of education through hands-on robotics, 
                 IoT, and entrepreneurship programs. We believe in nurturing creativity and innovation in students 
                 aged 10-18, both in urban and rural areas across India.
               </p>
@@ -294,7 +311,7 @@ const FateLandingPage = () => {
             </div>
             <div className="relative">
               <img
-                src={galleryImages[1].src}
+                src={galleryImages[4].src}
                 alt="About F.A.T.E"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
               />
@@ -433,18 +450,27 @@ const FateLandingPage = () => {
             <Card className="bg-white hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8 text-center space-y-6">
                 <div className="relative">
+                <a href="https://www.linkedin.com/in/shashank-kaniganti/" target="_blank" rel="noopener noreferrer">
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjAwMDkzMjJ8MA&ixlib=rb-4.1.0&q=85"
-                    alt="Dinesh Vanga"
+                    src={ShashankImage}
+                    alt="Shashank K"
                     className="w-32 h-32 mx-auto rounded-full object-cover shadow-lg"
                   />
+                  </a>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-gray-900">Dinesh Vanga</h3>
-                  <p className="text-blue-600 font-semibold">Embedded Engineer & Founder</p>
+                <a href="https://www.linkedin.com/in/shashank-kaniganti/" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                  <h3 className="text-2xl font-bold text-gray-900">Shashank K</h3>
+                  </a>
+                  <p className="text-gray-900 font-semibold">Founder</p>
+                  <p className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent font-semibold">
+  IoT & Robotics Engineer
+</p>
+
+                  
                   <p className="text-gray-600">
-                    Passionate about embedded systems and robotics, Dinesh brings deep technical expertise 
-                    in hardware design and automation to F.A.T.E's educational programs.
+                  With extensive experience in IoT and smart systems, Shashank drives innovation in 
+                  connected technologies and helps students understand the Internet of Things ecosystem.
                   </p>
                 </div>
               </CardContent>
@@ -454,18 +480,26 @@ const FateLandingPage = () => {
             <Card className="bg-white hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8 text-center space-y-6">
                 <div className="relative">
+                <a href="https://www.linkedin.com/in/dinesh-vanga-0a60842a5/" target="_blank" rel="noopener noreferrer">
                   <img
-                    src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjAwMDkzMjJ8MA&ixlib=rb-4.1.0&q=85"
-                    alt="Shashank K"
+                    src={DineshImage}
+                    alt="Dinesh Vanga"
                     className="w-32 h-32 mx-auto rounded-full object-cover shadow-lg"
                   />
+                  </a>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-gray-900">Shashank K</h3>
-                  <p className="text-purple-600 font-semibold">IoT Engineer & Founder</p>
+                  <a href="https://www.linkedin.com/in/dinesh-vanga-0a60842a5/" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                  <h3 className="text-2xl font-bold text-gray-900">Dinesh Vanga</h3>
+                  </a>
+                  <p className="text-gray-900 font-semibold">Founder</p>
+                  <p className="bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-700 bg-clip-text text-transparent font-semibold">
+  Embedded & Robotics Engineer
+</p>
+
                   <p className="text-gray-600">
-                    With extensive experience in IoT and smart systems, Shashank drives innovation in 
-                    connected technologies and helps students understand the Internet of Things ecosystem.
+                  Passionate about embedded systems and robotics, Dinesh brings deep technical expertise 
+                  in hardware design and automation to F.A.T.E's educational programs.
                   </p>
                 </div>
               </CardContent>
@@ -506,12 +540,10 @@ const FateLandingPage = () => {
                   >
                     <Instagram className="h-6 w-6" />
                   </a>
-                  <button 
-                    className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 rounded-full hover:shadow-lg transition-shadow duration-200"
-                    title="LinkedIn (Coming Soon)"
-                  >
+                  <a href="https://www.linkedin.com/in/fate-unite-472a5935b/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 rounded-full hover:shadow-lg transition-shadow duration-200">
+
                     <Linkedin className="h-6 w-6" />
-                  </button>
+                  </a>
                   <a
                     href="mailto:fateunite1807@gmail.com"
                     className="bg-gradient-to-r from-gray-600 to-gray-700 text-white p-3 rounded-full hover:shadow-lg transition-shadow duration-200"
@@ -621,9 +653,14 @@ const FateLandingPage = () => {
               >
                 <Instagram className="h-6 w-6" />
               </a>
-              <button className="text-gray-400 hover:text-white transition-colors duration-200">
-                <Linkedin className="h-6 w-6" />
-              </button>
+              <a href="https://www.linkedin.com/in/fate-unite-472a5935b/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+             <Linkedin className="h-6 w-6" />
+
+              </a>
               <a
                 href="mailto:fateunite1807@gmail.com"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
